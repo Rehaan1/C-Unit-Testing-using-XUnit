@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using DemoLibrary;
-using System.IO;
 
 namespace DemoLibrary.Tests
 {
@@ -14,14 +8,15 @@ namespace DemoLibrary.Tests
         [Fact]
         public void ExampleLoadTextFile_ValidNameShouldWork()
         {
-            string actual = Examples.ExampleLoadTextFile("This is a valid file name.");
+            string actual = Examples.ExampleLoadTextFile("exampleFile.txt"); ;
 
             Assert.True(actual.Length > 0);
         }
 
         [Fact]
-        public void ExampleLoadTextFile_InvalidNameShouldFail()
+        public void ExampleLoadTextFile_ValidNameShouldFail()
         {
+            // Check if exception thrown is an ArgumentException
             Assert.Throws<ArgumentException>("file", () => Examples.ExampleLoadTextFile(""));
         }
     }
